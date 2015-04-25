@@ -19,11 +19,10 @@ void setup(){
 }
 
 void loop(){
-  int left = constrain(((map(analogRead(A0), 0, 1023,0,180) - 90) - (map(analogRead(A1), 0, 1023,0,180) - 90)/2)+90,0,180);
   int right = constrain(((map(analogRead(A0), 0, 1023,0,180) - 90) + (map(analogRead(A1), 0, 1023,0,180) - 90)/2)+90,0,180);
+  int left = constrain(((map(analogRead(A0), 0, 1023,0,180) - 90) - (map(analogRead(A1), 0, 1023,0,180) - 90)/2)+90,0,180);
   
-  int head = map(analogRead(A3), 0,1023,0,180);
-  
+  int head = map(analogRead(A2), 0,1023,0,180)+2;
   
   XBeeSerial.write(Exicute);
   XBeeSerial.write(Left);
@@ -42,6 +41,8 @@ void loop(){
   Serial.print(left, DEC);
   Serial.print(" ");
   Serial.print(right, DEC);
+  Serial.print(" ");
+  Serial.print(map(analogRead(A2), 0,1023,0,180) ,DEC);
   Serial.println(" ");
 
   delay(50);
