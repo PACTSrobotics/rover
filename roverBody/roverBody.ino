@@ -75,13 +75,19 @@ void executeCommand() {
   int speed = command[1];
   
   if(c == MOTORLEFT){
-     if(speed >= 0) {
-       leftDrive.start(leftDrive.FORWARD, map(constrain(speed,0,127), 0, 127, 0, 255));
+     if(speed >= 128) {
+       leftDrive.start(leftDrive.FORWARD, map(constrain(speed,128, 255), 128, 255, 0, 255));
+     } else {
+       leftDrive.start(leftDrive.BACK, map(constrain(speed, 0, 127), 0, 127, 0, 255));
      }
      
   }
   if(c == MOTORRIGHT){
-
+     if(speed >= 128) {
+       rightDrive.start(rightDrive.FORWARD, map(constrain(speed,128, 255), 128, 255, 0, 255));
+     } else {
+       rightDrive.start(rightDrive.BACK, map(constrain(speed, 0, 127), 0, 127, 0, 255));
+     }
   }
 
 }
