@@ -75,18 +75,18 @@ void executeCommand() {
   int speed = command[1];
   
   if(c == MOTORLEFT){
-     if(speed >= 128) {
-       leftDrive.start(H_Bridge::FORWARD, map(constrain(speed,128, 255), 128, 255, 0, 255));
+     if(speed >= 90) {
+       leftDrive.start(H_Bridge::FORWARD, map(constrain(speed,90, 180), 90, 180, 0, 255));
      } else {
-       leftDrive.start(H_Bridge::BACK, map(constrain(speed, 0, 127), 0, 127, 0, 255));
+       leftDrive.start(H_Bridge::BACK, map(constrain(speed, 0, 90), 0, 90, 0, 255));
      }
      
   }
   if(c == MOTORRIGHT){
-     if(speed >= 128) {
-       rightDrive.start(H_Bridge::FORWARD, map(constrain(speed,128, 255), 128, 255, 0, 255));
+     if(speed >= 90) {
+       rightDrive.start(H_Bridge::FORWARD, map(constrain(speed,90, 180), 90, 180, 0, 255));
      } else {
-       rightDrive.start(H_Bridge::BACK, map(constrain(speed, 0, 127), 0, 127, 0, 255));
+       rightDrive.start(H_Bridge::BACK, map(constrain(speed, 0, 90), 0, 90, 0, 255));
      }
   }
 

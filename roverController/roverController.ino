@@ -2,7 +2,7 @@
 
 SoftwareSerial XBeeSerial(2, 3);
 
-#define Exicute 0x7F
+#define Exicute 0x77
 #define Left 0x1
 #define Right 0x2
 #define Head 0x3
