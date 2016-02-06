@@ -19,8 +19,11 @@ void setup(){
 }
 
 void loop(){
-  int right = constrain(((map(analogRead(A0), 0, 1023,0,180) - 90) + (map(analogRead(A1), 0, 1023,0,180) - 90)/2)+90,0,180);
-  int left = constrain(((map(analogRead(A0), 0, 1023,0,180) - 90) - (map(analogRead(A1), 0, 1023,0,180) - 90)/2)+90,0,180);
+  //int right = constrain(((map(analogRead(A0), 0, 1023,0,255) - 90) + (map(analogRead(A1), 0, 1023,0,255) - 90)/2)+90,0,255);
+  //int left = constrain(((map(analogRead(A0), 0, 1023,0,255) - 90) - (map(analogRead(A1), 0, 1023,0,255) - 90)/2)+90,0,255);
+  int right = map(analogRead(A0), 0,1023,0,255);
+  int left = map(analogRead(A3), 0,1023,0,255);
+
   
   int head = map(analogRead(A2), 0,1023,0,180)+2;
   
@@ -41,8 +44,8 @@ void loop(){
   Serial.print(left, DEC);
   Serial.print(" ");
   Serial.print(right, DEC);
-  Serial.print(" ");
-  Serial.print(map(analogRead(A2), 0,1023,0,180) ,DEC);
+  //Serial.print(" ");
+  //Serial.print(map(analogRead(A2), 0,1023,0,180) ,DEC);
   Serial.println(" ");
 
   delay(50);
